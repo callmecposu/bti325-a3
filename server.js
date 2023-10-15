@@ -1,5 +1,5 @@
 /***************************************************************************
-* BTI325 - Assignment 02
+* BTI325 - Assignment 03
 *
 米
 * I declare that this assignment is my own work in accordance with Seneca's
@@ -37,7 +37,6 @@ app.get("/lego/sets", (req, res) => {
   }
 });
 
-// specify the 'num' argument in query params when running
 app.get("/lego/sets/:setNum", (req, res) => {
   legoData
     .getSetsByNum(req.params.setNum)
