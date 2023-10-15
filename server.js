@@ -7,9 +7,10 @@
 * https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 *
 * Name: Maksym Volkovynskyi   Student ID: 126867225   Date: 2023/10/15
+*
+* Published URL: https://sleepy-purse-bat.cyclic.app/
 ***************************************************************************/
 
-// cyclic link: https://sleepy-purse-bat.cyclic.app/
 
 const legoData = require("./modules/legoSets");
 
