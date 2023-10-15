@@ -1,0 +1,121 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABout</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- responsive navbar -->
+    <div id="navbar-container" class="px-6 w-full">
+      <div class="navbar bg-base-100 border-b-4 border-neutral rounded-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border-2 border-primary-focus"
+            >
+              <li>
+                <a>Theme</a>
+                <ul class="p-2">
+                  <li><a href="/lego/sets?theme=technic">Technic</a></li>
+                  <li>
+                    <a href="/lego/sets?theme=supplemental">Supplemental</a>
+                  </li>
+                  <li><a href="/lego/sets?theme=basic%20set">Basic Set</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost normal-case text-xl mx-4" href="/"
+            >Lego Collection</a
+          >
+          <span><a class="btn btn-primary" href="/about">About</a></span>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li tabindex="0">
+              <details>
+                <summary>Theme</summary>
+                <ul class="p-2 border-2 border-primary-focus rounded-md">
+                  <li><a href="/lego/sets?theme=technic">Technic</a></li>
+                  <li>
+                    <a href="/lego/sets?theme=supplemental">Supplemental</a>
+                  </li>
+                  <li><a href="/lego/sets?theme=basic%20set">Basic Set</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <!-- hero component -->
+      <div
+        class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg"
+        style="background-image: url(/img/about-hero.jpg)"
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">About me</h1>
+            <p class="mb-5">
+              I see you are a curious sort!<br />
+              Have it your way, look below for some infotmation
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- grid system -->
+    <div class="container mx-auto mt-8 flex justify-center">
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <!-- <div class="hero" style="background-image: url(/img/about-col.jpg); min-height: 400px;"></div> -->
+        <div
+          class="rounded-xl m-8 shadow-xl"
+          style="
+            background-image: url(img/about-col.jpg);
+            background-position: center;
+            background-size: cover;
+            min-height: 400px;
+          "
+        ></div>
+        <div
+          class="m-8 p-4 rounded-xl border-2 border-red-500 bg-primary-content"
+        >
+          Frankly, I can't come up with anything right now, so enjoy the
+          <b>LOREM</b>! <br /><br />
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Porro ab
+          ducimus amet odio atque in qui mollitia officiis itaque. Numquam sunt
+          nihil laudantium dolorem adipisci, assumenda vero ex iure expedita
+          illum, commodi fugiat. Natus animi nulla maxime sint aspernatur,
+          blanditiis consequuntur consequatur vero qui dolor reprehenderit
+          dignissimos sequi culpa rerum magnam ut enim dolorem architecto
+          excepturi nemo. Delectus non accusantium exercitationem obcaecati
+          dolor, reiciendis fugit. At, temporibus accusamus animi aliquam
+          consectetur obcaecati est laboriosam necessitatibus fugiat nihil qui
+          eos nulla fuga accusantium velit autem quo? Itaque reiciendis pariatur
+          sequi impedit libero, eveniet vitae. Minus error odio quae harum
+          consectetur laborum.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

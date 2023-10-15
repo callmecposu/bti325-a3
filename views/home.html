@@ -1,0 +1,180 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lego Collection</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- responsive navbar -->
+    <div id="navbar-container" class="px-6 w-full">
+      <div class="navbar bg-base-100 border-b-4 border-neutral rounded-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </label>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border-2 border-primary-focus"
+            >
+              <li>
+                <a>Theme</a>
+                <ul class="p-2">
+                  <li><a href="/lego/sets?theme=technic">Technic</a></li>
+                  <li>
+                    <a href="/lego/sets?theme=supplemental">Supplemental</a>
+                  </li>
+                  <li><a href="/lego/sets?theme=basic%20set">Basic Set</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost normal-case text-xl mx-4" href="/"
+            >Lego Collection</a>
+            <span><a class="btn" href="/about">About</a></span>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li tabindex="0">
+              <details>
+                <summary>Theme</summary>
+                <ul class="p-2 border-2 border-primary-focus rounded-md">
+                  <li><a href="/lego/sets?theme=technic">Technic</a></li>
+                  <li>
+                    <a href="/lego/sets?theme=supplemental">Supplemental</a>
+                  </li>
+                  <li><a href="/lego/sets?theme=basic%20set">Basic Set</a></li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <!-- hero component -->
+      <div
+        class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg"
+        style="
+          background-image: url(https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1000w,f_auto,q_auto:eco,dpr_2.0/rockcms/2023-01/lego-bricks-mc-230105-780fa4.jpg);
+        "
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">Let's explore!</h1>
+            <p class="mb-5">
+              Buttons don't bite.
+              <br />
+              So what are you waiting for?
+            </p>
+            <a href="/lego/sets" class="btn btn-primary">View all Sets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- grid system -->
+    <div class="container mx-auto mt-8 flex justify-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        <!-- card 1 -->
+        <div
+          class="card rounded-xl border-2 border-secondary-focus w-96 h-fit shadow-xl m-4 overflow-hidden"
+        >
+          <figure>
+            <img
+              src="https://cdn.rebrickable.com/media/sets/0241187567-1.jpg"
+            />
+          </figure>
+          <div class="card-body bg-neutral-focus">
+            <h2 class="card-title">Ninjago: Build Your Own Adventure</h2>
+            <p>
+              Written by Scarlett O'Hara <br />
+              Hardcover: 80 pages<br />
+              Publisher: Dorling Kindersley (August 2015)<br />
+              Language: English<br />
+              ISBN-10: 0241187567<br />
+              ISBN-13: 9780241187562<br />
+
+              Parts supplied in a polybag numbered 11909
+            </p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/0241187567-1" class="btn btn-secondary"
+                >View Set</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- card 2 -->
+        <div
+          class="card rounded-xl border-2 border-secondary-focus w-96 h-fit shadow-xl m-4 overflow-hidden"
+        >
+          <figure>
+            <img src="https://cdn.rebrickable.com/media/sets/033-1.jpg" />
+          </figure>
+          <div class="card-body bg-neutral-focus">
+            <h2 class="card-title">Farm Animals</h2>
+            <p>
+              Re-released in 1982 as set 2641-1. No known differences exist
+              between the two versions.
+            </p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/033-1" class="btn btn-secondary">View Set</a>
+            </div>
+          </div>
+        </div>
+        <!-- card 3 -->
+        <div
+          class="card rounded-xl border-2 border-secondary-focus w-96 h-fit shadow-xl m-4 overflow-hidden"
+        >
+          <figure>
+            <img
+              src="https://cdn.rebrickable.com/media/sets/0241357594-1.jpg"
+            />
+          </figure>
+          <div class="card-body bg-neutral-focus">
+            <h2 class="card-title">
+              Star Wars: Build Your Own Adventure: Galactic Missions
+            </h2>
+            <p>
+              Published by DK Children (Dorling Kindersley) as a hardcover
+              released on August 1, 2019 in the United Kingdom and on August 6,
+              2019 in the United States. The book contains 80 pages. <br />
+              ISBN-10: 0241357594 (UK) / 1465478957 (US)<br />
+              ISBN-13: 978-0241357590 (UK) / 978-1465478955 (US)<br />
+              <br />
+              The parts come in a polybag stamped<br />
+              “The LEGO Group”<br />
+              6+<br />
+              11920<br />
+              Item: 6259833<br />
+              Barcode 5 702016395419<br />
+              <br />
+              The book also features 2 cardboard bookmarks which can be pulled
+              out of the packaging, and an A2-sized colour poster featuring
+              build ideas from the book.
+            </p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/0241357594-1" class="btn btn-secondary"
+                >View Set</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
