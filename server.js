@@ -9,6 +9,8 @@
 * Name: Maksym Volkovynskyi   Student ID: 126867225   Date: 2023/10/15
 ***************************************************************************/
 
+// cyclic link: https://sleepy-purse-bat.cyclic.app/
+
 const legoData = require("./modules/legoSets");
 
 const path = require("path");
