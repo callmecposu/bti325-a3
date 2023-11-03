@@ -7,7 +7,7 @@
   </head>
   <body>
     <!-- responsive navbar -->
-    <%- include('partials/navbar', {page:'/lego/sets'}) %>
+    <%- include('partials/navbar', {page:'/lego/set'}) %>
     <div class="flex justify-center mb-4">
       <!-- hero component -->
       <div
@@ -31,7 +31,9 @@
     <!-- set -->
     <div class="container mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-2 mt-8 gap-4">
+        <div class="flex justify-center">
         <img class="rounded-lg" src="<%= set.img_url %>" />
+        </div>
         <div class="p-4 border-2 border-neutral rounded-lg bg-neutral-focus">
           <p class="my-4"><b>Set Name:</b> <%= set.name %></p>
           <p class="my-4"><b>Year Released:</b> <%= set.year %></p>
