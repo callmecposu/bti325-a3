@@ -1,0 +1,25 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Not Found</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <!-- responsive navbar -->
+    <%- include('partials/navbar', {page:'/404'}) %>
+    <div class="flex justify-center">
+      <!-- hero component -->
+      <div class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">404</h1>
+            <p class="mb-5"><%= message %></p>
+            <a href="/" class="btn btn-primary">Back to Home!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

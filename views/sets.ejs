@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Sets</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body>
+    <!-- responsive navbar -->
+    <%- include('partials/navbar', {page:'/lego/sets'}) %>
+    <div class="flex justify-center mb-4">
+      <!-- hero component -->
+      <div
+        class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg"
+        style="
+          background-image: url(https://i0.wp.com/tinyworkshops.com/wp-content/uploads/2023/03/NINJAGO%C2%AE-City-Gardens-Biggest-Lego-set.jpg?resize=1024%2C683&ssl=1);
+        "
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">
+                <a href="/lego/sets">All Sets</a>
+            </h1>
+            <p class="mb-5">Filter sets by category:</p>
+            <div class="flex justify-center">
+              <a class="btn <%= (theme.toLowerCase() == 'technic') ? 'btn-primary' : 'btn-secondary' %> mx-4" href="/lego/sets?theme=technic">Technic</a>
+              <a class="btn <%= (theme.toLowerCase() == 'supplemental') ? 'btn-primary' : 'btn-secondary' %> mx-4" href="/lego/sets?theme=supplemental">Supplemental</a>
+              <a class="btn <%= (theme.toLowerCase() == 'basic set') ? 'btn-primary' : 'btn-secondary' %> mx-4" href="/lego/sets?theme=basic%20set">Basic Set</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- sets -->
+    <% let bg = 'bg-neutral'%>
+    <div class="container mx-auto overflow-x-scroll rounded-lg">
+    <table class="mx-auto">
+      <% sets.forEach(set => {%>
+      <tr class="h-40 w-full rounded-xl my-4 <%= bg %>">
+        <td class="px-4">
+          <div class="avatar">
+            <div class="h-36 w-36 overflow-hidden rounded-xl">
+              <img class="h-full" src="<%= set.img_url %>" />
+            </div>
+          </div>
+        </td>
+        <td class="px-4"><%= set.name %></td>
+        <td class="px-4">
+          <div class="flex w-full h-full justify-center items-center">
+            <a
+              class="btn btn-sm btn-primary"
+              href="/lego/sets?theme=<%= set.theme %>"
+              ><%= set.theme %></a
+            >
+          </div>
+        </td>
+        <td class="px-4"><b>Released:</b> <%= set.year %></td>
+        <td class="px-4"><b>Parts:</b> <%= set.num_parts %></td>
+        <td class="px-4">
+          <a class="btn btn-sm btn-outline" href="/lego/sets/<%= set.set_num %>"
+            >Details</a
+          >
+        </td>
+      </tr>
+      <% bg = (bg == 'bg-neutral') ? 'bg-text-neutral-content' : 'bg-neutral' %>
+      <% })%>
+    </table>
+    </div>
+  </body>
+</html>
