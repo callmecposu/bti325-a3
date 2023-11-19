@@ -104,11 +104,6 @@ module.exports.getSetsbyTheme = (theme) => {
       .catch((err) => {
         reject(`No sets matching the theme '${theme}'.`);
       });
-    // let res = sets.filter((el) =>
-    //   el.theme.toLowerCase().includes(theme.toLowerCase())
-    // );
-    // if (res.length != 0) resolve(res);
-    // else reject(`No sets matching the theme '${theme}'.`);
   });
 };
 
@@ -134,5 +129,38 @@ module.exports.addSet = (setData) => {
       .catch((err) => {
         reject(err.errors[0].message);
       });
+  });
+};
+
+module.exports.editSet = (set_num, setData) => {
+  return new Promise((resolve, reject) => {
+    Set.update(
+      {
+        name: setData.name,
+        year: setData.year,
+        num_parts: setData.num_parts,
+        theme_id: setData.theme_id,
+        img_url: setData.img_url,
+      },
+      {
+        where: {
+          set_num: set_num,
+        },
+      }
+    )
+      .then(() => resolve())
+      .catch((err) => reject(err.errors[0].message));
+  });
+};
+
+module.exports.deleteSet = (set_num) => {
+  return new Promise((resolve, reject) => {
+    Set.destroy({
+      where: {
+        set_num: set_num,
+      },
+    })
+      .then(() => resolve())
+      .catch((err) => reject(err.errors[0].message));
   });
 };

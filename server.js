@@ -74,6 +74,38 @@ app.post("/lego/addSet", (req, res) => {
     });
 });
 
+app.get("/lego/editSet/:num", (req, res) => {
+  Promise.all([legoData.getSetsByNum(req.params.num), legoData.getAllThemes()])
+    .then((result) => {
+      res.render("editSet", { themes: result[1], set: result[0] });
+    })
+    .catch((err) => {
+      res.status(404).render("404", { message: err });
+    });
+});
+
+app.post("/lego/editSet", (req, res) => {
+  legoData
+    .editSet(req.body.set_num, req.body)
+    .then(() => res.redirect("/lego/sets"))
+    .catch((err) =>
+      res.render("500", {
+        message: `I'm sorry, but we have encountered the following error: ${err}`,
+      })
+    );
+});
+
+app.get("/lego/deleteSet/:num", (req, res) => {
+  legoData
+    .deleteSet(req.params.num)
+    .then(() => res.redirect("/lego/sets"))
+    .catch((err) =>
+      res.render("500", {
+        message: `I'm sorry, but we have encountered the following error: ${err}`,
+      })
+    );
+});
+
 app.use((req, res, next) => {
   res.status(404).render("404", { message: "Path Not Found :c" });
 });
