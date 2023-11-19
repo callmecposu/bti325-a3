@@ -18,36 +18,64 @@ const app = express();
 
 app.use(express.static("public"));
 
+app.use(express.urlencoded({ extended: true }));
+
 app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-  res.render('home')
+  res.render("home");
 });
 
 app.get("/about", (req, res) => {
-  res.render('about');
+  res.render("about");
 });
 
 app.get("/lego/sets", (req, res) => {
   if (req.query.theme) {
     legoData
       .getSetsbyTheme(req.query.theme)
-      .then((result) => res.render('sets', {sets: result, theme: req.query.theme}))
-      .catch((err) => res.status(404).render('404', {message: err}));
+      .then((result) =>
+        res.render("sets", { sets: result, theme: req.query.theme })
+      )
+      .catch((err) => res.status(404).render("404", { message: err }));
   } else {
-    legoData.getAllSets().then((result) => res.render('sets', {sets: result, theme: ''}))
+    legoData
+      .getAllSets()
+      .then((result) => res.render("sets", { sets: result, theme: "" }));
   }
 });
 
 app.get("/lego/sets/:setNum", (req, res) => {
   legoData
     .getSetsByNum(req.params.setNum)
-    .then((sets) => res.render('set', {set:sets}))
-    .catch((err) => res.status(404).render('404', {message: err}));
+    .then((sets) => res.render("set", { set: sets }))
+    .catch((err) => res.status(404).render("404", { message: err }));
+});
+
+app.get("/lego/addSet", (req, res) => {
+  legoData
+    .getAllThemes()
+    .then((themeData) => {
+      res.render("addSet", { themes: themeData });
+    })
+    .catch((err) => {
+      res.render("500", { message: err });
+    });
+});
+
+app.post("/lego/addSet", (req, res) => {
+  legoData
+    .addSet(req.body)
+    .then(() => res.redirect("/lego/sets"))
+    .catch((err) => {
+      res.render("500", {
+        message: `I'm sorry, but we have encountered the following error: ${err}`,
+      });
+    });
 });
 
 app.use((req, res, next) => {
-  res.status(404).render('404', {message: 'Path Not Found :c'})
+  res.status(404).render("404", { message: "Path Not Found :c" });
 });
 
 legoData.initialize().then(() => {

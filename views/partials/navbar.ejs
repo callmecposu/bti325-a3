@@ -32,6 +32,13 @@
           </li>
           <li>
             <a
+              class="<%= (page == '/lego/addSet' ? 'link-active' : 'link-primary') %>"
+              href="/lego/addSet"
+              >Add to Collection</a
+            >
+          </li>
+          <li>
+            <a
               class="<%= (page == '/about' ? 'link-active' : 'link-primary') %>"
               href="/about"
               >About</a
@@ -51,6 +58,15 @@
               class="btn btn-outline <%= (page == '/lego/sets') ? 'btn-active' : '' %>"
               href="/lego/sets"
               >View Collection</a
+            ></span
+          >
+        </li>
+        <li>
+          <span
+            ><a
+              class="btn btn-outline <%= (page == '/lego/addSet') ? 'btn-active' : '' %>"
+              href="/lego/addSet"
+              >Add to Collection</a
             ></span
           >
         </li>
