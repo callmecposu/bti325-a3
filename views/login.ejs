@@ -1,0 +1,83 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body class="pb-8">
+    <!-- responsive navbar -->
+    <%- include('partials/navbar', {page: '/login'}) %>
+    <div class="flex justify-center">
+      <!-- hero component -->
+      <div
+        class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg"
+        style="
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1200px-LEGO_logo.svg.png);
+        "
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">Login</h1>
+            <p class="mb-5">
+              Hand them credentials &#128299; &#128520;&#128071;
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- form -->
+    <div class="container mx-auto">
+      <form action="/login" method="post">
+        <div class="flex justify-center flex-col md:flex-row">
+          <div class="m-6">
+            <label for="userName">User Name</label>
+            <input
+            type="text"
+            id="userName"
+            name="userName"
+            placeholder="User Name"
+            <% if (typeof userName !== 'undefined'){%>
+             value=<%= userName%>
+            <%}%>
+            required
+            class="w-full border-2 rounded-md" />
+          </div>
+          <div class="m-6">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+              class="w-full border-2 rounded-md"
+            />
+          </div>
+          <div class="m-6"></div>
+        </div>
+        <div class="container mx-auto">
+          <button type="submit" class="btn btn-primary w-full">Login</button>
+        </div>
+        <% if (typeof errorMessage !== 'undefined') {%>
+        <div class="alert alert-error mt-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 2424"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            /></svg
+          ><span><%= errorMessage %></span>
+        </div>
+        <%}%>
+      </form>
+    </div>
+  </body>
+</html>

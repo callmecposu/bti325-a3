@@ -23,18 +23,59 @@
           tabindex="0"
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border-2 border-primary-focus"
         >
+          <% if(session.user){ %>
+          <li class="link-primary">
+            <details>
+              <summary>Account: <%= session.user.userName %></summary>
+              <ul class="p-2 right-0">
+                <li>
+                  <a
+                    class="<%= (page == '/lego/addSet') ? 'active': '' %>"
+                    href="/lego/addSet"
+                    >Add to Collection</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="<%= (page == '/userHistory') ? 'active': '' %>"
+                    href="/userHistory"
+                    >User History</a
+                  >
+                </li>
+                <li>
+                  <a href="/logout">Logout</a>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <% } else { %>
+          <li class="link-primary">
+            <details>
+              <summary>Account</summary>
+              <ul class="p-2 right-0">
+                <li>
+                  <a
+                    class="<%= (page == '/login') ? 'active': '' %>"
+                    href="/login"
+                    >Login</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="<%= (page == '/register') ? 'active': '' %>"
+                    href="/register"
+                    >Register</a
+                  >
+                </li>
+              </ul>
+            </details>
+          </li>
+          <% } %>
           <li>
             <a
               class="<%= (page == '/lego/sets' ? 'link-active' : 'link-primary') %>"
               href="/lego/sets"
               >View Collection</a
-            >
-          </li>
-          <li>
-            <a
-              class="<%= (page == '/lego/addSet' ? 'link-active' : 'link-primary') %>"
-              href="/lego/addSet"
-              >Add to Collection</a
             >
           </li>
           <li>
@@ -52,21 +93,60 @@
     </div>
     <div class="navbar-end hidden lg:flex">
       <ul class="menu menu-horizontal px-1">
+        <% if(session.user){ %>
+        <li class="m-auto">
+          <details>
+            <summary>Account: <%= session.user.userName %></summary>
+            <ul class="p-2 right-0">
+              <li>
+                <a
+                  class="<%= (page == '/lego/addSet') ? 'active': '' %>"
+                  href="/lego/addSet"
+                  >Add to Collection</a
+                >
+              </li>
+              <li>
+                <a
+                  class="<%= (page == '/userHistory') ? 'active': '' %>"
+                  href="/userHistory"
+                  >User History</a
+                >
+              </li>
+              <li>
+                <a href="/logout">Logout</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+        <% } else { %>
+        <li class="m-auto">
+          <details>
+            <summary>Account</summary>
+            <ul class="p-2 right-0">
+              <li>
+                <a
+                  class="<%= (page == '/login') ? 'active': '' %>"
+                  href="/login"
+                  >Login</a
+                >
+              </li>
+              <li>
+                <a
+                  class="<%= (page == '/register') ? 'active': '' %>"
+                  href="/register"
+                  >Register</a
+                >
+              </li>
+            </ul>
+          </details>
+        </li>
+        <% } %>
         <li>
           <span
             ><a
               class="btn btn-outline <%= (page == '/lego/sets') ? 'btn-active' : '' %>"
               href="/lego/sets"
               >View Collection</a
-            ></span
-          >
-        </li>
-        <li>
-          <span
-            ><a
-              class="btn btn-outline <%= (page == '/lego/addSet') ? 'btn-active' : '' %>"
-              href="/lego/addSet"
-              >Add to Collection</a
             ></span
           >
         </li>

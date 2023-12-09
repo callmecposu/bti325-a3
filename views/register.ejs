@@ -1,0 +1,120 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <title>Register</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body class="pb-8">
+    <!-- responsive navbar -->
+    <%- include('partials/navbar', {page: '/register'}) %>
+    <div class="flex justify-center">
+      <!-- hero component -->
+      <div
+        class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg"
+        style="
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1200px-LEGO_logo.svg.png);
+        "
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">Register</h1>
+            <p class="mb-5">
+              Welcome to the club, buddy &#128074;&#128572;&#128074;
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- form -->
+    <div class="container mx-auto">
+      <% if( typeof successMessage !== 'undefined'){%>
+      <div class="alert mt-6">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="stroke-current shrink-0 h-6 w-6"
+          fill="none"
+          viewBox="0 0 2424"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 90 0118 0z"
+          /></svg
+        ><span><%= successMessage %></span>
+      </div>
+      <br /><a href="/login" class="btn btn-success">Proceed to Log in</a>
+      <%} else {%>
+      <form action="/register" method="post">
+        <div class="flex justify-center flex-col md:flex-row">
+          <div class="m-6">
+            <div>
+              <label for="userName">User Name</label>
+              <input type="text" id="userName" name="userName" placeholder="User Name" <% if (typeof userName !== 'undefined'){%> value=<%=
+              userName %> <%}%> required class="w-full border-2 rounded-md" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                class="w-full border-2 rounded-md"
+              />
+            </div>
+          </div>
+          <div class="m-6">
+            <div>
+              <label for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                required
+                class="w-full border-2 rounded-md"
+              />
+            </div>
+            <div>
+              <label for="password2">Confirm Password</label>
+              <input
+                type="password"
+                id="pasword2"
+                name="password2"
+                placeholder="Confirm Password"
+                required
+                class="w-full border-2 rounded-md"
+              />
+            </div>
+          </div>
+          <div class="m-6"></div>
+        </div>
+        <div class="container mx-auto">
+          <button type="submit" class="btn btn-primary w-full">Register</button>
+        </div>
+        <% if (typeof errorMessage !== 'undefined') {%>
+        <div class="alert alert-error mt-6">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 2424"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            /></svg
+          ><span><%= errorMessage %></span>
+        </div>
+        <%}%>
+      </form>
+      <%}%>
+    </div>
+  </body>
+</html>

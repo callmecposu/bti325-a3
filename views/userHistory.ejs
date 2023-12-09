@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=0.8" />
+    <title>User History</title>
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body class="pb-8">
+    <!-- responsive navbar -->
+    <%- include('partials/navbar', {page:'/userHistory'}) %>
+    <div class="flex justify-center mb-4">
+      <!-- hero component -->
+      <div
+        class="hero h-screen md:h-96 md:w-3/4 md:m-8 md:rounded-lg"
+        style="
+          background-image: url(https://taiijas.com/wp-content/uploads/2021/05/Ethical-Hacking.jpg);
+        "
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h1 class="mb-5 text-5xl font-bold">
+                <a href="/lego/sets"><%= session.user.userName %></a>
+            </h1>
+            <p class="mb-5">User History: <%= session.user.email %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- user history table -->
+    <% let bg = 'bg-neutral'%>
+    <div class="container mx-auto overflow-x-scroll rounded-lg">
+    <table class="mx-auto overflow-auto">
+        <tr class="h-20 text-center border-b-2 border-secondary">
+            <th>Login Date/Time</th>
+            <th>Client Information</th>
+        </tr>
+      <% session.user.loginHistory.forEach(item => {%>
+      <tr class="h-40 w-full rounded-xl my-4 <%= bg %>">
+        <td class="w-80 p-4"><%= (new Date(item.dateTime)).toLocaleString() %></td>
+        <td class="p-4"><%= item.userAgent %></td>
+      </tr>
+      <% bg = (bg == 'bg-neutral') ? 'bg-text-neutral-content' : 'bg-neutral' %>
+      <% })%>
+    </table>
+    </div>
+  </body>
+</html>
